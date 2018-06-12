@@ -1,12 +1,16 @@
 <!DOCTYPE HTML>
-
+<!--
+    Phantom by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
     <head>
         <title>SIRSEO | BY REDSOFT</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        <link rel="stylesheet" href="assets/css/main.css" />
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     </head>
@@ -19,8 +23,8 @@
                         <div class="inner">
 
                             <!-- Logo -->
-                                <a href="{{ route('home') }}" class="logo">
-                                    <span class="symbol"><img src="{{ asset('images/sirseo.png') }}" alt="" /></span><span class="title">SIRSEO</span>
+                                <a href="index.html" class="logo">
+                                    <span class="symbol"><img src="images/sirseo.png" alt="" /></span><span class="title">SIRSEO</span>
                                 </a>
 
                             <!-- Nav -->
@@ -35,39 +39,28 @@
 
                 <!-- Menu -->
                     <nav id="menu">
-                        <h2>{{ $user->name }}</h2>
+                        <h2>Menu</h2>
                         <ul>
-                            <li><a href="/home">Home</a></li>
-                            <li>
-                                <a 
-                                    href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                            </li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a><li>
-                            <li><a href="#">Acerca de</a></li>
-                            <li><a href="#">Contacto</a></li>
-                            <li><a href="#">Mi Perfil</a></li>
+                            <li><a href="generic.html">Acerca de</a></li>
+                            <li><a href="generic.html">Contacto</a></li>
+                            <li><a href="elements.html">Elements</a></li>
                         </ul>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
                     </nav>
 
                 <!-- Main -->
                     <div id="main">
                         <div class="inner">
                             <header>
-                                {{-- <h1>SIRSEO</h1><br /> --}}
-                                <h3>Sistema Integrado De Registros De Seguridad Para Entidades Oficiales</h3><br>
-                                <h1>Bienvenido {{ $user->name }}<h1>
+                                <h1>SIRSEO</h1><br />
+                                <h3>Sistema Integrado De Registros De Seguridad Para Entidades Oficiales</h3>
                             </header>
                             <section class="tiles">
                                 <article class="style1">
                                     <span class="image">
-                                        <img src="{{ asset('images/pic01.jpg') }}" alt="" />
+                                        <img src="images/pic01.jpg" alt="" />
                                     </span>
                                     <a href="generic.html">
                                         <h2>Registro de Vistantes</h2>
@@ -78,7 +71,7 @@
                                 </article>
                                 <article class="style2">
                                     <span class="image">
-                                        <img src="{{ asset('images/pic02.jpg') }}" alt="" />
+                                        <img src="images/pic02.jpg" alt="" />
                                     </span>
                                     <a href="generic.html">
                                         <h2>Registro de Funcionarios</h2>
@@ -89,7 +82,7 @@
                                 </article>
                                 <article class="style3">
                                     <span class="image">
-                                        <img src="{{ asset('images/pic03.jpg') }}" alt="" />
+                                        <img src="images/pic03.jpg" alt="" />
                                     </span>
                                     <a href="generic.html">
                                         <h2>Registro de Elementos</h2>
@@ -100,7 +93,7 @@
                                 </article>
                                 <article class="style4">
                                     <span class="image">
-                                        <img src="{{ asset('images/pic04.jpg') }}" alt="" />
+                                        <img src="images/pic04.jpg" alt="" />
                                     </span>
                                     <a href="generic.html">
                                         <h2>Bitácora</h2>
@@ -112,7 +105,7 @@
                                 </article>
                                 <article class="style5">
                                     <span class="image">
-                                        <img src="{{ asset('images/pic05.jpg') }}" alt="" />
+                                        <img src="images/pic05.jpg" alt="" />
                                     </span>
                                     <a href="generic.html">
                                         <h2>Registro de Expedientes</h2>
@@ -123,7 +116,7 @@
                                 </article>
                                 <article class="style6">
                                     <span class="image">
-                                        <img src="{{ asset('images/pic06.jpg') }}" alt="" />
+                                        <img src="images/pic06.jpg" alt="" />
                                     </span>
                                     <a href="generic.html">
                                         <h2>Informes de Novedades</h2>
@@ -178,11 +171,11 @@
             </div>
 
         <!-- Scripts -->
-            <script src="{{ asset('js/jquery.min.js') }}"></script>
-            <script src="{{ asset('js/skel.min.js') }}"></script>
-            <script src="{{ asset('js/util.js') }}"></script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
             <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-            <script src="{{ asset('js/main.js') }}"></script>
+            <script src="assets/js/main.js"></script>
 
     </body>
 </html>

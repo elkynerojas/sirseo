@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-    Phantom by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
     <head>
         <title>SIRSEO | BY REDSOFT</title>
@@ -41,12 +37,11 @@
                     <nav id="menu">
                         <h2>Menu</h2>
                         <ul>
-                            <li><a href="/">Home</a></li>
+                            <li><a href="/home">Home</a></li>
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a><li>
-                            <li><a href="generic.html">Acerca de</a></li>
-                            <li><a href="generic.html">Contacto</a></li>
-                            <li><a href="elements.html">Elements</a></li>
+                            <li><a href="#">Acerca de</a></li>
+                            <li><a href="#">Contacto</a></li>
                         </ul>
                     </nav>
 
@@ -54,10 +49,12 @@
                     <div id="main">
                         <div class="inner">
                             <header>
-                                <h1>SIRSEO</h1><br />
-                                <h3>Sistema Integrado De Registros De Seguridad Para Entidades Oficiales</h3>
+                                {{-- <h1>SIRSEO</h1><br /> --}}
+                                <h1>Sistema Integrado De Registros De Seguridad Para Entidades Oficiales</h1><br>
+                                <h3>Bienvenido a Nuestra Plataforma</h3><br>
+                                <h3><a href="{{ route('login') }}">Por Favor Inicie Sesión</a></h3>
                             </header>
-                            <section class="tiles">
+{{--                             <section class="tiles">
                                 <article class="style1">
                                     <span class="image">
                                         <img src="{{ asset('images/pic01.jpg') }}" alt="" />
@@ -125,7 +122,7 @@
                                         </div>
                                     </a>
                                 </article>
-                            </section>
+                            </section> --}}
                         </div>
                     </div>
 
