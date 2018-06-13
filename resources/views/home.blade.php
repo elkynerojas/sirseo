@@ -46,7 +46,6 @@
                                     {{ __('Logout') }}
                                 </a>
                             </li>
-                            {{-- <li><a href="{{ route('register') }}">Registrarse</a><li> --}}
                             <li><a href="#">Acerca de</a></li>
                             <li><a href="#">Contacto</a></li>
                             <li><a href="#">Mi Perfil</a></li>
