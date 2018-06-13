@@ -37,7 +37,7 @@
                     <nav id="menu">
                         <h2>{{ $user->name }}</h2>
                         <ul>
-                            <li><a href="/home">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             <li>
                                 <a 
                                     href="{{ route('logout') }}"
@@ -46,7 +46,7 @@
                                     {{ __('Logout') }}
                                 </a>
                             </li>
-                            <li><a href="{{ route('register') }}">Registrarse</a><li>
+                            {{-- <li><a href="{{ route('register') }}">Registrarse</a><li> --}}
                             <li><a href="#">Acerca de</a></li>
                             <li><a href="#">Contacto</a></li>
                             <li><a href="#">Mi Perfil</a></li>
