@@ -73,7 +73,7 @@
                                 <h1>{{ $user->name }}</h1>
                                 @endguest
                             </header>
-                            @yield('content');
+                            @yield('content')
                         </div>
                     </div>
 
