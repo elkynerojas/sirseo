@@ -19,10 +19,10 @@
 
 // Auth
 Auth::routes();
-Route::get('logout','Auth\LoginController@logout')->name('logout');
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
 
 //WebController
 Route::get('/', 'Web\WebController@Welcome')->name('welcome');
-Route::get('home', 'Web\WebController@Home')->name('home');
+Route::get('home', 'Web\WebController@Home')->middleware('auth')->name('home');
 Route::get('contact', 'Web\WebController@Contact')->name('contact');
 
