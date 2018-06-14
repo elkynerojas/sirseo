@@ -54,98 +54,14 @@
                                 <h3>Bienvenido a Nuestra Plataforma</h3><br>
                                 <h3><a href="{{ route('login') }}">Por Favor Inicie Sesión</a></h3>
                             </header>
-{{--                             <section class="tiles">
-                                <article class="style1">
-                                    <span class="image">
-                                        <img src="{{ asset('images/pic01.jpg') }}" alt="" />
-                                    </span>
-                                    <a href="generic.html">
-                                        <h2>Registro de Vistantes</h2>
-                                        <div class="content">
-                                            <p>Registro y consulta de datos de personas visitantes</p>
-                                        </div>
-                                    </a>
-                                </article>
-                                <article class="style2">
-                                    <span class="image">
-                                        <img src="{{ asset('images/pic02.jpg') }}" alt="" />
-                                    </span>
-                                    <a href="generic.html">
-                                        <h2>Registro de Funcionarios</h2>
-                                        <div class="content">
-                                            <p>Registro y consulta de ingreso y salida de funcionarios de la entidad</p>
-                                        </div>
-                                    </a>
-                                </article>
-                                <article class="style3">
-                                    <span class="image">
-                                        <img src="{{ asset('images/pic03.jpg') }}" alt="" />
-                                    </span>
-                                    <a href="generic.html">
-                                        <h2>Registro de Elementos</h2>
-                                        <div class="content">
-                                            <p>Registro y consulta de entrada y salida de elementos propios y ajenos a la entidad</p>
-                                        </div>
-                                    </a>
-                                </article>
-                                <article class="style4">
-                                    <span class="image">
-                                        <img src="{{ asset('images/pic04.jpg') }}" alt="" />
-                                    </span>
-                                    <a href="generic.html">
-                                        <h2>Bitácora</h2>
-                                        <div class="content">
-                                            <p>Registro y consulta de información relevante relacionada con la seguridad 
-                                            en la entidad organizada en ordén cronológico </p>
-                                        </div>
-                                    </a>
-                                </article>
-                                <article class="style5">
-                                    <span class="image">
-                                        <img src="{{ asset('images/pic05.jpg') }}" alt="" />
-                                    </span>
-                                    <a href="generic.html">
-                                        <h2>Registro de Expedientes</h2>
-                                        <div class="content">
-                                            <p>Registro y consulta de entrada y salida de documentos y expedientes de la entidad</p>
-                                        </div>
-                                    </a>
-                                </article>
-                                <article class="style6">
-                                    <span class="image">
-                                        <img src="{{ asset('images/pic06.jpg') }}" alt="" />
-                                    </span>
-                                    <a href="generic.html">
-                                        <h2>Informes de Novedades</h2>
-                                        <div class="content">
-                                            <p>Registro y consulta de Informes oficiales realizados por el personal de seguridad</p>
-                                        </div>
-                                    </a>
-                                </article>
-                            </section> --}}
+
                         </div>
                     </div>
 
                 <!-- Footer -->
                     <footer id="footer">
                         <div class="inner">
-                            <!-- <section>
-                                <h2>Get in touch</h2>
-                                <form method="post" action="#">
-                                    <div class="field half first">
-                                        <input type="text" name="name" id="name" placeholder="Name" />
-                                    </div>
-                                    <div class="field half">
-                                        <input type="email" name="email" id="email" placeholder="Email" />
-                                    </div>
-                                    <div class="field">
-                                        <textarea name="message" id="message" placeholder="Message"></textarea>
-                                    </div>
-                                    <ul class="actions">
-                                        <li><input type="submit" value="Send" class="special" /></li>
-                                    </ul>
-                                </form>
-                            </section> -->
+                            
                             <section>
                                 <h2>Siganos En Redes Sociales</h2>
                                 <ul class="icons">
