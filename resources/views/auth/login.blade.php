@@ -62,7 +62,7 @@
                                         <div class="12u$">
                                             <ul class="actions">
                                                 <li><input type="submit" value="Login" class="special" /></li>
-                                                <li><a href="{{ route('inicio') }}"><input type="button" value="Regresar" /></a></li>
+                                                <li><a href="{{ route('welcome') }}"><input type="button" value="Regresar" /></a></li>
                                             </ul>
                                         </div>
                                         <div class="12u$">

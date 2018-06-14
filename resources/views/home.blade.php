@@ -47,7 +47,7 @@
                                 </a>
                             </li>
                             <li><a href="#">Acerca de</a></li>
-                            <li><a href="#">Contacto</a></li>
+                            <li><a href="{{ route('contact') }}">Contacto</a></li>
                             <li><a href="#">Mi Perfil</a></li>
                         </ul>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
