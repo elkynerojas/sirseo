@@ -11,8 +11,7 @@ class WebController extends Controller
 
 	public function Home()
 	{
-		$this->middleware('auth');
-
+		
     	$user = Auth::user();
 		return view('home',compact('user'));
 	}
