@@ -23,6 +23,7 @@ class WebController extends Controller
 
     public function Contact()
     {
-    	return view('contact');
+        $user = Auth::user();
+    	return view('contact',compact('user'));
     }
 }
