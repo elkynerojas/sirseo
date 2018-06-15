@@ -9,10 +9,11 @@ use Auth;
 class WebController extends Controller
 {
 
-	public function Home()
+	public function Home(Request $request)
 	{
-		
+		//$request->user()->authorizeRoles(['user']);
     	$user = Auth::user();
+        $user->authorizeRoles(['user']);
 		return view('home',compact('user'));
 	}
 
