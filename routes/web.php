@@ -25,4 +25,5 @@ Route::get('/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/', 'Web\WebController@Welcome')->name('welcome');
 Route::get('home', 'Web\WebController@Home')->middleware('auth')->name('home');
 Route::get('contact', 'Web\WebController@Contact')->name('contact');
+Route::get('about','Web\WebController@about')->name('about');
 

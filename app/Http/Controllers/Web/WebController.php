@@ -26,4 +26,9 @@ class WebController extends Controller
         $user = Auth::user();
     	return view('contact',compact('user'));
     }
+    public function About()
+    {
+        $user = Auth::user();
+        return view('about',compact('user'));
+    }
 }
