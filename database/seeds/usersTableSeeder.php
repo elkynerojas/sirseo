@@ -12,8 +12,11 @@ class usersTableSeeder extends Seeder
     public function run()
     {
          App\User::create([
-		    'name' => 'Elkin Rojas',
-		    'email' => 'rojaselkin1@gmail.com',
+		    'nombre' => 'Elkin Rojas',
+            'apellido' => 'Rojas Lizcano',
+            'direccion' => 'Cra 1a # 11-87 Pamplona',
+            'telefono'  => '3182204190',
+ 		    'email' => 'rojaselkin1@gmail.com',
 		    'password' => bcrypt('12345'), 
 		    'remember_token' => 'nsshdyewiowkmcnsbhhj' 
 	    ]);
