@@ -15,7 +15,15 @@
 //     return view('welcome');
 // });
 
+
+
+// Auth
 Auth::routes();
-Route::get('/', 'inicioController@index')->name('inicio');
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
+
+//WebController
+Route::get('/', 'Web\WebController@Welcome')->name('welcome');
+Route::get('home', 'Web\WebController@Home')->middleware('auth')->name('home');
+Route::get('contact', 'Web\WebController@Contact')->name('contact');
+Route::get('about','Web\WebController@about')->name('about');
+
