@@ -12,7 +12,7 @@
 </nav>
 @else
 <nav id="menu">
-    <h2>{{ $user->name }}</h2>
+    <h2>{{ $user->nombre.' '.$user->apellido }}</h2>
     <ul>
         <li><a href="{{ route('home') }}">Home</a></li>
         <li><a href="{{ route('logout') }}">Logout</a></li>

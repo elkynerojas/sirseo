@@ -4,6 +4,6 @@
     @guest
     <h3><a href="{{ route('login') }}">Inicie Sesión</a></h3>
     @else
-    <h1>{{ $user->name }}</h1>
+    <h1>{{ $user->nombre.' '.$user->apellido }}</h1>
     @endguest
 </header>
