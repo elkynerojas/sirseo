@@ -41,13 +41,16 @@
             </div>
         </div>
         <div class="row uniform">
-             <div class="6u$ 12u$(xsmall)">
+            <div class="6u 12u$(xsmall)">
                 <input type="email" name="email" id="email" value="" placeholder="Email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"  />
                 @if ($errors->has('email'))
                     <span class="invalid-feedback">
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                 @endif
+            </div>
+            <div class="6u$ 12u$(xsmall)">
+                <input type="email" id="email-confirm" value="" placeholder="Confirmar Email"  name="email_confirmation"  />
             </div>
         </div>
         <div class="row uniform">
@@ -60,7 +63,7 @@
                 @endif
             </div>
             <div class="6u$ 12u$(xsmall)">
-                <input type="password" id="password-confirm" value="" placeholder="Confirmar" class="form-control" name="password_confirmation"  />
+                <input type="password" id="password-confirm" value="" placeholder="Confirmar Contraseña"  name="password_confirmation"  />
             </div>
             <div class="12u$">
                 <ul class="actions">
