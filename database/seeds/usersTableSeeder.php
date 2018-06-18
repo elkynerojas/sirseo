@@ -24,6 +24,7 @@ class usersTableSeeder extends Seeder
             $user->telefono = '3182204190';
             $user->email = 'rojaselkin1@gmail.com';
             $user->password = bcrypt('12345');
+            $user->puesto_id = '1';
             $user->save();
             $user->roles()->attach($role_user);
 
@@ -34,6 +35,7 @@ class usersTableSeeder extends Seeder
             $user->telefono = '3182204190';
             $user->email = 'admin@gmail.com';
             $user->password = bcrypt('12345');
+            $user->puesto_id = '1';
             $user->save();
             $user->roles()->attach($role_admin); 
 	    

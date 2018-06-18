@@ -18,4 +18,9 @@ class Puesto extends Model
         ->belongsTo('App\Tipo_puesto')
         ->withTimestamps();
     }
+
+    public function users()
+    {
+        return $this->hasMany('App\User');
+    }
 }

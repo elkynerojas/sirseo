@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre', 'apellido', 'direccion', 'telefono', 'email', 'password',
+        'nombre', 'apellido', 'direccion', 'telefono', 'email', 'password','puesto_id'
     ];
 
     /**
@@ -61,5 +61,9 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+
+    public function puestos(){
+        return $this->belongsTo('App\User');
     }
 }
