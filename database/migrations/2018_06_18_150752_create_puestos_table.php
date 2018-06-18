@@ -19,7 +19,7 @@ class CreatePuestosTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->string('email');
-            $table->longText('descripcion');
+            $table->longText('descripcion')->nullable();
             $table->integer('tipo_puesto_id')->unsigned()->index();
             $table->timestamps();
 
