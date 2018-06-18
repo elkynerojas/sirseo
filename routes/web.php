@@ -27,3 +27,5 @@ Route::get('home', 'Web\WebController@Home')->middleware('auth')->name('home');
 Route::get('contact', 'Web\WebController@Contact')->name('contact');
 Route::get('about','Web\WebController@about')->name('about');
 
+
+Route::resource('puestos', 		'Admin\PuestoController');
