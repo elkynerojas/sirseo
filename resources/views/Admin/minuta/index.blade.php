@@ -19,7 +19,7 @@
 					<th>Fecha</th>
 					<th>Hora</th>
 					<th>Asunto</th>
-					<th>Anotación</th>
+					<th>Extracto</th>
 					<th>Registrado por</th>
 					{{-- <th colspan="3">Acciones</th> --}}
 				</tr>
@@ -30,7 +30,7 @@
 					<td>{{ $registro->fecha }}</td>
 					<td>{{ $registro->hora }}</td>
 					<td>{{ $registro->asunto }}</td>
-					<td>{{ $registro->anotacion }}</td>
+					<td>{{ $registro->extracto }}</td>
 					<td>{{ $registro->user_nombre.' '.$registro->user_apellido }}</td>
 					{{-- <td colspan="3">
 						<ul style= "list-style-type: none; overflow: hidden;">

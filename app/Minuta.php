@@ -9,7 +9,7 @@ class Minuta extends Model
     protected $table = 'minuta';
 
     protected $fillable = [
-    	'id', 'fecha', 'hora', 'asunto', 'anotacion', 'user_id'
+    	'id', 'fecha', 'hora', 'asunto', 'extracto', 'anotacion', 'user_id'
     ];
 
     public function users()
@@ -29,6 +29,7 @@ class Minuta extends Model
     		'minuta.fecha as fecha',
             'minuta.hora as hora',
             'minuta.asunto as asunto',
+            'minuta.extracto as extracto',
             'minuta.anotacion as anotacion'
     	);
     }

@@ -18,6 +18,7 @@ class CreateMinutaTable extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->string('asunto');
+            $table->string('extracto');
             $table->longText('anotacion');
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();

@@ -2,7 +2,12 @@
 @section('content')
 <section>
 	<h2>Nuevo Registro en Minuta</h2>
-	<form method="post" action="{{ route('minuta.store') }}">
+	{!! Form::open(['route' => 'minuta.store', 'method' => 'POST']) !!}
+                        
+        @include('Admin.minuta.partials.form')
+
+    {!! Form::close() !!}
+	{{-- <form method="post" action="{{ route('minuta.store') }}">
 		@csrf
 		<div class="row uniform">
 			<div class="6u 12u$(xsmall)">
@@ -40,6 +45,6 @@
 				</ul>
 			</div>
 		</div>
-	</form>
+	</form> --}}
 </section>
 @endsection
