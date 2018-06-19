@@ -29,3 +29,4 @@ Route::get('about','Web\WebController@about')->name('about');
 
 
 Route::resource('puestos', 		'Admin\PuestoController');
+Route::resource('minuta', 		'Admin\MinutaController');

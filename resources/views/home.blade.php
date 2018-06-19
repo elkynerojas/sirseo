@@ -38,7 +38,7 @@
             <span class="image">
                 <img src="{{ asset('images/pic04.jpg') }}" alt="" />
             </span>
-            <a href="generic.html">
+            <a href="{{ route('minuta.index') }}">
                 <h2>Bitácora</h2>
                 <div class="content">
                     <p>Registro y consulta de información relevante relacionada con la seguridad 

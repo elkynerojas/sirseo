@@ -66,4 +66,9 @@ class User extends Authenticatable
     public function puestos(){
         return $this->belongsTo('App\User');
     }
+
+    public function minuta()
+    {
+        return $this->hasMany('App\Minuta');
+    }
 }
