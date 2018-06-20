@@ -14,7 +14,6 @@ class MinutaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -30,7 +29,7 @@ class MinutaController extends Controller
         ->paginate('5');
         
 
-        return view('Admin/minuta/index',compact(['user','minuta']));
+        return view('Admin.minuta.index',compact(['user','minuta']));
     }
 
     /**
@@ -41,7 +40,7 @@ class MinutaController extends Controller
     public function create()
     {
         $user = Auth::user();
-        return view('Admin/minuta/create',compact('user'));
+        return view('Admin.minuta.create',compact('user'));
     }
 
     /**
@@ -53,7 +52,7 @@ class MinutaController extends Controller
     public function store(Request $request)
     {
         $minuta = Minuta::create($request->all());
-        return('Registro guardado');
+        return redirect()->route('minuta.edit', $minuta->id)->with('info', 'Registro guardado con éxito');
     }
 
     /**
@@ -64,7 +63,9 @@ class MinutaController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = Auth::user();
+        $minuta = Minuta::find($id);
+        return 'show';
     }
 
     /**
@@ -75,7 +76,9 @@ class MinutaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+        $minuta = Minuta::find($id);
+        return view('Admin.minuta.edit',compact('user','minuta'));
     }
 
     /**
@@ -87,7 +90,11 @@ class MinutaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        $minuta = Minuta::find($id);
+        $minuta->fill($request->all())->save();
+
+        return redirect()->route('minuta.edit', $minuta->id)->with('info', 'Registro actualizado con éxito');
     }
 
     /**
@@ -98,6 +105,6 @@ class MinutaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $minuta = Minuta::find($id)->delete();
     }
 }

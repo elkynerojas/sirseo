@@ -28,6 +28,7 @@
 
         <!-- Scripts -->
            @include('layouts.scripts')
+           @include('layouts.alerts')
            @yield('scripts')
 
     </body>
