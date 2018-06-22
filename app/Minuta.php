@@ -26,6 +26,7 @@ class Minuta extends Model
     		'users.apellido as user_apellido',
     		'puestos.id as puesto_id',
     		'puestos.nombre as puesto_nombre',
+            'minuta.id as id',
     		'minuta.fecha as fecha',
             'minuta.hora as hora',
             'minuta.asunto as asunto',

@@ -13,6 +13,7 @@
 	</section>
 	{{ $minuta->render() }}
 	<div class="table-wrapper">
+		@include('layouts.alerts')
 		<table class="alt">
 			<thead>
 				<tr>
@@ -21,6 +22,7 @@
 					<th>Asunto</th>
 					<th>Extracto</th>
 					<th>Registrado por</th>
+					<th>Acciones</th>
 					{{-- <th colspan="3">Acciones</th> --}}
 				</tr>
 			</thead>
@@ -32,14 +34,17 @@
 					<td>{{ $registro->asunto }}</td>
 					<td>{{ $registro->extracto }}</td>
 					<td>{{ $registro->user_nombre.' '.$registro->user_apellido }}</td>
-					{{-- <td colspan="3">
-						<ul style= "list-style-type: none; overflow: hidden;">
-							<li style = "float: left; padding: 10px "><a href="#" class="btn btn-sm btn-default">Ver</a></li>
-							<li><a style = "display: inline-block;" href="#" class="btn btn-sm btn-default">Ver</a></li>
-							<li><a href="#" class="btn btn-sm btn-default">Ver</a></li>
-						</ul>
-					</td> --}}
+					<td>
+						<a href="{{ route('minuta.show',$registro->id) }}"><input type="button" name="" value="Ver" class="button special small"></a>
+
+						<a href="{{ route('minuta.edit',$registro->id) }}"><input type="button" name="" value="Editar" class="button special small"></a>	
+
+						<a href="#"><input type="button" name="" value="Eliminar" class="button special small" onclick="$('#Frm-destroy').submit()">
+						</a>	
+					</td>
 				</tr>
+				{!! Form::open(['route' => ['minuta.destroy', $registro->id], 'method' => 'DELETE', 'id' =>'Frm-destroy']) !!}
+                {!! Form::close() !!}
 				@endforeach
 			</tbody>
 		</table>
@@ -48,6 +53,7 @@
 </section>
 
 @endsection
+
 
 
 

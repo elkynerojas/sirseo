@@ -13,8 +13,14 @@ class WebController extends Controller
 	{
 		//$request->user()->authorizeRoles(['user']);
     	$user = Auth::user();
+        if($user->hasRole('user')){
+            $rol = 'user';
+        }
+        if($user->hasRole('admin')){
+            $rol = 'admin';
+        }
         $user->authorizeRoles(['user']);
-		return view('home',compact('user'));
+		return view('home',compact('user','rol'));
 	}
 
     public function Welcome()

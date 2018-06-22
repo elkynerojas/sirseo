@@ -1,20 +1,22 @@
 @if (session('info'))
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+    <blockquote id="alert">
+        <div class="row uniform">
+            <div class="12u 12u$(xsmall)">
                 <div class="alert alert-success">
-                    {{ session('info') }}
+                    <strong>{{ session('info') }}</strong>
+                   <span id="btnAlert" style = "float: right; cursor: pointer;">&times;</span>
                 </div>
             </div>
         </div>
-    </div>
+    </blockquote>
 @endif
 
 @if(count($errors))            
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="alert alert-success">
+        <blockquote id="alert">
+            <div class="row uniform">
+                <div class="alert alert-danger">
+                    <span id="btnAlert" style = "float: right; cursor: pointer;">&times;</span>
                     <ul>
                         @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -22,6 +24,15 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </blockquote>
     </div>
 @endif
+@section('scripts')
+    <script>
+        window.addEventListener('load', function(){
+             $('#btnAlert').click(function(event) {
+                $('#alert').hide();
+             });
+        })
+    </script>
+@endsection
