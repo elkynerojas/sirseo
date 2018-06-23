@@ -9,7 +9,7 @@ class Visitante extends Model
     protected $table = 'visitantes';
 
     protected $fillable = [
-    	'id','documento','nombre','apellido','entrada','salida','estado','user_id'
+    	'id','documento','nombre','apellido','fecha','entrada','salida','estado', 'detalles','user_id'
     ];
 
     public function users(){

@@ -9,29 +9,20 @@ class Minuta extends Model
     protected $table = 'minuta';
 
     protected $fillable = [
-    	'id', 'fecha', 'hora', 'asunto', 'extracto', 'anotacion', 'user_id'
+    	'id', 'fecha', 'hora', 'asunto', 'extracto', 'anotacion', 'puesto_id', 'user_id'
     ];
 
-    public function users()
+    public function user()
     {
-    	return $this->belongsTo('App\users');
+    	return $this->belongsTo(User::class);
     }
-
+    public function puesto()
+    {
+        return $this->belongsTo(Puesto::class);
+    }
     public function scopeWith_puesto($query){
     	return $query
     	->join('users','minuta.user_id','=','users.id')
-    	->join('puestos','users.puesto_id','=','puestos.id')
-    	->select(
-    		'users.nombre as user_nombre',
-    		'users.apellido as user_apellido',
-    		'puestos.id as puesto_id',
-    		'puestos.nombre as puesto_nombre',
-            'minuta.id as id',
-    		'minuta.fecha as fecha',
-            'minuta.hora as hora',
-            'minuta.asunto as asunto',
-            'minuta.extracto as extracto',
-            'minuta.anotacion as anotacion'
-    	);
+    	->join('puestos','users.puesto_id','=','puestos.id');
     }
 }

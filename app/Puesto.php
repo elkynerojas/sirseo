@@ -12,6 +12,10 @@ class Puesto extends Model
 		'id', 'nombre', 'direccion', 'telefono', 'email', 'descripcion', 'tipo_puesto_id'
 	];
 
+    protected $hidden = [
+        'created_at', 'updated_at'
+    ];
+
     public function tipos_puesto()
     {
         return $this
@@ -21,9 +25,12 @@ class Puesto extends Model
 
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany(User::class);
     }
-
+    public function minuta()
+    {
+        return $this->hasMany(Minuta::class);
+    }
     public function scopeWith_Tipo_Puesto($query){
         return $query
         ->join('tipos_puesto','tipos_puesto.id','=','puestos.tipo_puesto_id')

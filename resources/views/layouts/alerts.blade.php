@@ -1,5 +1,5 @@
 @if (session('info'))
-    <blockquote id="alert">
+    <div id="alert">
         <div class="row uniform">
             <div class="12u 12u$(xsmall)">
                 <div class="alert alert-success">
@@ -8,12 +8,13 @@
                 </div>
             </div>
         </div>
-    </blockquote>
+    </div>
+    <br><br>
 @endif
 
 @if(count($errors))            
     <div class="container">
-        <blockquote id="alert">
+        <div id="alert">
             <div class="row uniform">
                 <div class="alert alert-danger">
                     <span id="btnAlert" style = "float: right; cursor: pointer;">&times;</span>
@@ -24,8 +25,9 @@
                     </ul>
                 </div>
             </div>
-        </blockquote>
+        </div>
     </div>
+    <br><br>
 @endif
 @section('scripts')
     <script>

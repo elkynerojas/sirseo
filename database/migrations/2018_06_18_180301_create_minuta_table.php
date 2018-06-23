@@ -20,10 +20,15 @@ class CreateMinutaTable extends Migration
             $table->string('asunto');
             $table->string('extracto');
             $table->longText('anotacion');
+            $table->integer('puesto_id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
 
             //
+
+            $table->foreign('puesto_id')->references('id')->on('puestos')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
 
             $table->foreign('user_id')->references('id')->on('users')
             ->onUpdate('cascade')

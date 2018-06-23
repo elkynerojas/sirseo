@@ -11,7 +11,6 @@ class WebController extends Controller
 
 	public function Home(Request $request)
 	{
-		//$request->user()->authorizeRoles(['user']);
     	$user = Auth::user();
         if($user->hasRole('user')){
             $rol = 'user';
@@ -19,7 +18,7 @@ class WebController extends Controller
         if($user->hasRole('admin')){
             $rol = 'admin';
         }
-        $user->authorizeRoles(['user']);
+        $user->authorizeRoles(['user','admin']);
 		return view('home',compact('user','rol'));
 	}
 

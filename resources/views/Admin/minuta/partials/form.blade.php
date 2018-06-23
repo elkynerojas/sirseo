@@ -1,11 +1,13 @@
+{{-- {{ date_default_timezone_set('America/Bogota') }} --}}
+
 <div class="row uniform">
 	<div class="6u 12u$(xsmall)">
 		{{ Form::label('fecha', 'Fecha') }}
-    	{{ Form::date('fecha', null, ['placeholder' => 'Fecha', 'id' => 'fecha']) }}
+    	{{ Form::date('fecha', now(), ['placeholder' => 'Fecha', 'id' => 'fecha','readonly' => 'true']) }}
 	</div>
 	<div class="6u 12u$(xsmall)">
 		{{ Form::label('hora', 'Hora') }}
-    	{{ Form::time('hora', null, ['placeholder' => 'Hora', 'id' => 'hora']) }}
+    	{{ Form::time('hora', now(), ['placeholder' => 'Hora', 'id' => 'hora','readonly' => 'true']) }}
 	</div>
 </div>
 
@@ -28,6 +30,7 @@
 		{{ Form::label('anotacion', 'Anotación') }}
     	{{ Form::textarea('anotacion', null, ['placeholder' => 'Anotación', 'id' => 'anotacion']) }}
     	{{ Form::hidden('user_id', $user->id),['id' =>'user_id'] }}
+    	{{ Form::hidden('puesto_id', $user->puesto_id),['id' =>'puesto_id'] }}
 	</div>
 </div>
 

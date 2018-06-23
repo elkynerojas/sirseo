@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Minuta;
+use App\User;
 use Auth;
 
 class MinutaController extends Controller
@@ -19,19 +20,20 @@ class MinutaController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles(['user','admin']);
-        $minuta = Minuta::With_puesto()
-        ->orderBy('fecha','DESC')
-        ->orderBy('hora', 'DESC')
+       
+        $minuta = Minuta::orderBy('fecha','DESC')
+        ->orderBy('hora','DESC')
+        ->where('puesto_id',$user->puesto_id)
         ->paginate('5');
-        
         return view('Admin.minuta.index',compact(['user','minuta']));
     }
 
     
     public function create()
     {
-        $user = Auth::user();
 
+        $user = Auth::user();
+        $user->authorizeRoles(['user']);
         return view('Admin.minuta.create',compact('user'));
     }
 
@@ -56,11 +58,14 @@ class MinutaController extends Controller
     
     public function edit($id)
     {
+        
         $user = Auth::user();
-
+        $user->authorizeRoles(['user']);
         $minuta = Minuta::find($id);
-
-        return view('Admin.minuta.edit',compact('user','minuta'));
+        if($minuta->user_id != $user->id){
+          abort(403, 'Esta acción no está autorizada');
+        }
+        return view('Admin.minuta.edit',compact('user','minuta'));  
     }
 
    
@@ -70,7 +75,7 @@ class MinutaController extends Controller
 
         $minuta = Minuta::find($id);
 
-        $minuta->fill($request->all())->save();
+        $minuta->fill($request->except(['hora','fecha']))->save();
 
         return redirect()->route('minuta.index')->with('info', 'Registro actualizado con éxito');
     }
@@ -78,8 +83,12 @@ class MinutaController extends Controller
     
     public function destroy($id)
     {
-        $minuta = Minuta::find($id)->delete();
-
+        $user = Auth::user();
+        $minuta = Minuta::find($id);
+        if($minuta->user_id != $user->id){
+            abort(403, 'Esta acción no está autorizada.');
+        }
+        $minuta->delete();
         return redirect()->route('minuta.index')->with('info', 'El registro se ha eliminado');
     }
 }

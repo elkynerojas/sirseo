@@ -18,9 +18,11 @@ class CreateVisitantesTable extends Migration
             $table->bigInteger('documento');
             $table->string('nombre');
             $table->string('apellido');
+            $table->date('fecha');
             $table->time('entrada');
             $table->time('salida')->nullable();
             $table->enum('estado',['IN','OUT'])->default('IN');
+            $table->longText('detalles')->nullable();
             $table->integer('user_id')->unsigned()->index();
             $table->timestamps();
 

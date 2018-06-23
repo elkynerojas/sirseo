@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','created_at','updated_at'
     ];
 
     public function roles()
@@ -63,8 +63,8 @@ class User extends Authenticatable
         return false;
     }
 
-    public function puestos(){
-        return $this->belongsTo('App\User');
+    public function puesto(){
+        return $this->belongsTo(Puesto::class);
     }
 
     public function minuta()
