@@ -38,7 +38,7 @@ class User extends Authenticatable
         if ($this->hasAnyRole($roles)) {
             return true;
         }
-        abort(401, 'Esta acción no está autorizada.');
+        abort(403, 'Esta acción no está autorizada.');
     }
     public function hasAnyRole($roles)
     {

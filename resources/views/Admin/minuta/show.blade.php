@@ -13,10 +13,10 @@
 					<td><strong>Puesto : </strong> <br>{{ $minuta->puesto->nombre }}</td>
 				</tr>
 				<tr>
-					<td><strong>Fecha : </strong> <br>{{ date("d/m/Y", strtotime($minuta->created_at)) }}</td>
+					<td><strong>Fecha : </strong> <br>{{ date("d/m/Y", strtotime($minuta->fecha)) }}</td>
 				</tr>
 				<tr>
-					<td><strong>Hora : </strong> <br>{{ date_format($minuta->created_at, 'G:ia') }}</td>
+					<td><strong>Hora : </strong> <br>{{ $minuta->hora }}</td>
 				</tr>
 				<tr>
 					<td><strong>Asunto : </strong> <br> {{ $minuta->asunto }}</td>

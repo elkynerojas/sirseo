@@ -31,7 +31,7 @@ class VisitanteController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $user->authorizeRoles(['user','admin']);
+        $user->authorizeRoles(['user']);
 
         return view('Admin.visitantes.create',compact('user'));
     }
@@ -49,6 +49,8 @@ class VisitanteController extends Controller
     {
         $user = Auth::user();
 
+        $user->authorizeRoles(['user','admin']);
+
         $visitante = Visitante::find($id);
 
         return view('Admin.visitantes.show',compact('user','visitante'));
@@ -57,7 +59,10 @@ class VisitanteController extends Controller
     
     public function edit($id)
     {
+
         $user = Auth::user();
+
+        $user->authorizeRoles(['admin']);
 
         $visitante = Visitante::find($id);
 
@@ -67,15 +72,16 @@ class VisitanteController extends Controller
    
     public function update(Request $request, $id)
     {
+       
         $user = Auth::user();
 
         $visitante = Visitante::find($id);
 
-        $visitante->salida = now();
-        $visitante->estado = 'OUT';
+        $user->authorizeRoles(['admin']);
 
-        $visitante->save();
-        return redirect()->route('visitantes.index');
+        $visitante->fill($request->except(['estado','salida']))->save();
+
+        return redirect()->route('visitantes.index')->with('info', 'Registro actualizado con éxito');
     }
 
     
@@ -83,12 +89,16 @@ class VisitanteController extends Controller
     {
         $visitante = Visitante::find($id)->delete();
 
+        $user->authorizeRoles(['admin']);
+
         return redirect()->route('visitantes.index')->with('info', 'El registro se ha eliminado');
     }
 
     public function salida(Request $request)
     {
         $visitante = Visitante::find($request['id']);
+
+        $user->authorizeRoles(['user']);
 
         $visitante->salida = now();
         $visitante->estado = 'OUT';
