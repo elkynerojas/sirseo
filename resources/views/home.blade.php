@@ -7,7 +7,7 @@
         <span class="image">
             <img src="{{ asset('images/pic01.jpg') }}" alt="" />
         </span>
-        <a href="generic.html">
+        <a href="{{ route('visitantes.index') }}">
             <h2>Registro de Vistantes</h2>
             <div class="content">
                 <p>Registro y consulta de datos de personas visitantes</p>

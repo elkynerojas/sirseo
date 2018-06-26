@@ -1,15 +1,11 @@
 <div class="row uniform">
 	<div class="4u 12u$(xsmall)">
 		{{ Form::label('fecha', 'Fecha') }}
-    	{{ Form::date('fecha', null, ['placeholder' => 'Fecha', 'id' => 'fecha']) }}
+    	{{ Form::date('fecha', now(), ['placeholder' => 'Fecha', 'id' => 'fecha', 'readonly' => 'true']) }}
 	</div>
 	<div class="4u 12u$(xsmall)">
 		{{ Form::label('entrada', 'Entrada') }}
-    	{{ Form::time('entrada', null, ['placeholder' => 'Hora Entrada', 'id' => 'entrada']) }}
-	</div>
-	<div class="4u 12u$(xsmall)">
-		{{ Form::label('salida', 'Salida') }}
-    	{{ Form::time('salida', null, ['placeholder' => 'Hora Salida', 'id' => 'salida']) }}
+    	{{ Form::time('entrada', now(), ['placeholder' => 'Hora Entrada', 'id' => 'entrada', 'readonly' => 'true']) }}
 	</div>
 </div>
 
@@ -31,7 +27,7 @@
 	</div>
 	<div class="6u 12u$(xsmall)">
 		{{ Form::label('estado', 'estado') }}
-    	{{ Form::text('estado', null, ['placeholder' => 'estado', 'id' => 'estado']) }}
+    	{{ Form::text('estado', 'IN', ['placeholder' => 'estado', 'id' => 'estado', 'readonly' => 'true']) }}
 	</div>
 </div>
 
@@ -49,6 +45,4 @@
 	</ul>
 </div>
 
-@section('scripts')
-{{-- Código javascript --}}
-@endsection
+

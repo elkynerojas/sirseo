@@ -38,12 +38,12 @@
 					<td>{{ $registro->user->nombre.' '.$registro->user->apellido }}</td>
 					<td>
 						<a href="{{ route('minuta.show',$registro->id) }}"><input type="button" name="" value="Ver" class="button special small"></a>
-						@if($registro->user->id == $user->id )
+						{{-- @if($registro->user->id == $user->id )
 						<a href="{{ route('minuta.edit',$registro->id) }}"><input type="button" name="" value="Editar" class="button special small"></a>	
 
 						<a href="#"><input type="button" name="" value="Eliminar" class="button special small" onclick="$('#Frm-destroy').submit()">
 						</a>
-						@endif	
+						@endif --}}	
 					</td>
 				</tr>
 				{!! Form::open(['route' => ['minuta.destroy', $registro->id], 'method' => 'DELETE', 'id' =>'Frm-destroy']) !!}

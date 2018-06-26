@@ -12,7 +12,7 @@ class Visitante extends Model
     	'id','documento','nombre','apellido','fecha','entrada','salida','estado', 'detalles','user_id'
     ];
 
-    public function users(){
+    public function user(){
     	return $this->belongsTo('App\User');
     } 
 }

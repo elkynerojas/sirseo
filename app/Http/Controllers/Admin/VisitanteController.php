@@ -22,7 +22,7 @@ class VisitanteController extends Controller
 
         $visitantes = Visitante::orderBy('fecha','DESC')
         ->orderBy('entrada','DESC')
-        ->paginate('5');
+        ->paginate('30');
 
         return view('Admin.visitantes.index',compact('user','visitantes'));
     }
@@ -71,9 +71,11 @@ class VisitanteController extends Controller
 
         $visitante = Visitante::find($id);
 
-        $visitante->fill($request->all())->save();
+        $visitante->salida = now();
+        $visitante->estado = 'OUT';
 
-        return redirect()->route('visitantes.index')->with('info', 'Registro actualizado con éxito');
+        $visitante->save();
+        return redirect()->route('visitantes.index');
     }
 
     
@@ -82,5 +84,16 @@ class VisitanteController extends Controller
         $visitante = Visitante::find($id)->delete();
 
         return redirect()->route('visitantes.index')->with('info', 'El registro se ha eliminado');
+    }
+
+    public function salida(Request $request)
+    {
+        $visitante = Visitante::find($request['id']);
+
+        $visitante->salida = now();
+        $visitante->estado = 'OUT';
+
+        $visitante->save();
+        return redirect()->route('visitantes.index')->with('info', 'Salida de visitante registrada');
     }
 }

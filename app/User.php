@@ -69,6 +69,10 @@ class User extends Authenticatable
 
     public function minuta()
     {
-        return $this->hasMany('App\Minuta');
+        return $this->hasMany(Minuta::class);
+    }
+    public function visitante()
+    {
+        return $this->hasMany(Visitante::class);
     }
 }

@@ -17,45 +17,52 @@
 		<table class="alt">
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>Fecha</th>
+					<th>No.Documento</th>
 					<th>Nombre</th>
 					<th>Entrada</th>
 					<th>Salida</th>
 					<th>Estado</th>
-					<th>Registrado por</th>
+					{{-- <th>Registrado por</th> --}}
 					<th>Acciones</th>
-					{{-- <th colspan="3">Acciones</th> --}}
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($visitantes as $visitante)
 				<tr>
-					<td>{{ $visitante->fecha }}</td>
+					<td>{{ $visitante->id }}</td>
+					<td>{{ date("d/m/Y", strtotime($visitante->fecha)) }}</td>
+					<td>{{ $visitante->documento }}</td>
 					<td>{{ $visitante->nombre.' '.$visitante->apellido }}</td>
 					<td>{{ $visitante->entrada }}</td>
 					<td>{{ $visitante->salida }}</td>
 					<td>{{ $visitante->estado }}</td>
-					<td></td>
+					{{-- <td>{{ $visitante->user->nombre.' '.$visitante->user->apellido }}</td> --}}
 					<td>
-						<a href="{{ route('visitantes.show',$visitante->id) }}"><input type="button" name="" value="Ver" class="button special small"></a>
-
-						<a href="{{ route('visitantes.edit',$visitante->id) }}"><input type="button" name="" value="Editar" class="button special small"></a>	
-
-						<a href="#"><input type="button" name="" value="Eliminar" class="button special small" onclick="$('#Frm-destroy').submit()">
-						</a>	
+						@if($visitante->estado == 'IN')
+						<a href="javascript:salida({{ $visitante->id }})"><input type="button" name="" value="Salida" class="button special small">
+						</a>
+						@endif
+						<a href="{{ route('visitantes.show',$visitante->id) }}"><input type="button" name="" value="Ver" class="button special small"></a>	
 					</td>
 				</tr>
-				{!! Form::open(['route' => ['visitantes.destroy', $visitante->id], 'method' => 'DELETE', 'id' =>'Frm-destroy']) !!}
-                {!! Form::close() !!}
 				@endforeach
 			</tbody>
 		</table>
+		{!! Form::open(['route' => ['salidaVisitante'], 'method' => 'POST', 'id' =>'Frm-salida']) !!}
+			{{ Form::hidden('id',null,['id' => 'id']) }}
+		{!! Form::close() !!}
 	</div>
 
 </section>
-
+<script>
+ 	function salida(id){
+ 		$('#id').val(id);
+ 		$('#Frm-salida').submit();
+ 	}
+</script>
 @endsection
-
 
 
 

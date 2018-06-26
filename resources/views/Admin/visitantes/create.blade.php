@@ -5,7 +5,6 @@
 	{!! Form::open(['route' => 'visitantes.store', 'method' => 'POST']) !!}
                         
         @include('Admin.visitantes.partials.form')
-
     {!! Form::close() !!}
 </section>
 @endsection
