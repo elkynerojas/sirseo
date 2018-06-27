@@ -3,7 +3,7 @@
 <html>
     <!--head-->
     @include('layouts.head')
-    <body>
+    <body class="col-md-12">
         <!-- Wrapper -->
             <div id="wrapper">
 
@@ -28,6 +28,7 @@
 
         <!-- Scripts -->
            @include('layouts.scripts')
+           @include('layouts.alerts')
            @yield('scripts')
 
     </body>

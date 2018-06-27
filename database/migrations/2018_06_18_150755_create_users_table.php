@@ -22,8 +22,15 @@ class CreateUsersTable extends Migration
             $table->longText('picture')->nullable();
             $table->string('email',128)->unique();
             $table->string('password');
+            $table->integer('puesto_id')->unsigned()->index();
             $table->rememberToken();
             $table->timestamps();
+
+            //relaciones
+
+            $table->foreign('puesto_id')->references('id')->on('puestos')
+            ->onUpdate('cascade')
+            ->onDelete('restrict');
         });
     }
 

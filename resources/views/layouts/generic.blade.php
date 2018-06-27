@@ -15,6 +15,7 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
+							{{-- @include('layouts.alerts') --}}
 							<!--contenido-->
 							@yield('content')
 						</div>
