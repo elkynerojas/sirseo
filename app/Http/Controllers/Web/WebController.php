@@ -11,13 +11,14 @@ class WebController extends Controller
 
 	public function Home(Request $request)
 	{
-    	$user = Auth::user();
-        if($user->hasRole('user')){
-            $rol = 'user';
-        }
-        if($user->hasRole('admin')){
-            $rol = 'admin';
-        }
+          $user = Auth::user();
+     //    if($user->hasRole('user')){
+     //        $rol = 'user';
+     //    }
+     //    if($user->hasRole('admin')){
+     //        $rol = 'admin';
+     //    }
+        $rol = $user->getRol();
         $user->authorizeRoles(['user','admin']);
 		return view('home',compact('user','rol'));
 	}

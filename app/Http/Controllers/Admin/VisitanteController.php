@@ -19,12 +19,12 @@ class VisitanteController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles(['user','admin']);
-
+        $rol = $user->getRol();
         $visitantes = Visitante::orderBy('fecha','DESC')
         ->orderBy('entrada','DESC')
         ->paginate('30');
 
-        return view('Admin.visitantes.index',compact('user','visitantes'));
+        return view('Admin.visitantes.index',compact('user','rol','visitantes'));
     }
 
     
@@ -32,8 +32,9 @@ class VisitanteController extends Controller
     {
         $user = Auth::user();
         $user->authorizeRoles(['user']);
+        $rol = $user->getRol();
 
-        return view('Admin.visitantes.create',compact('user'));
+        return view('Admin.visitantes.create',compact('user','rol'));
     }
 
     
@@ -48,12 +49,12 @@ class VisitanteController extends Controller
     public function show($id)
     {
         $user = Auth::user();
-
         $user->authorizeRoles(['user','admin']);
+        $rol = $user->getRol();
 
         $visitante = Visitante::find($id);
 
-        return view('Admin.visitantes.show',compact('user','visitante'));
+        return view('Admin.visitantes.show',compact('user','rol','visitante'));
     }
 
     
@@ -61,12 +62,12 @@ class VisitanteController extends Controller
     {
 
         $user = Auth::user();
-
         $user->authorizeRoles(['admin']);
+        $rol = $user->getRol();
 
         $visitante = Visitante::find($id);
 
-        return view('Admin.visitantes.edit',compact('user','visitante'));
+        return view('Admin.visitantes.edit',compact('user','rol','visitante'));
     }
 
    
@@ -74,11 +75,9 @@ class VisitanteController extends Controller
     {
        
         $user = Auth::user();
-
-        $visitante = Visitante::find($id);
-
         $user->authorizeRoles(['admin']);
 
+        $visitante = Visitante::find($id);
         $visitante->fill($request->except(['estado','salida']))->save();
 
         return redirect()->route('visitantes.index')->with('info', 'Registro actualizado con éxito');
@@ -96,14 +95,14 @@ class VisitanteController extends Controller
 
     public function salida(Request $request)
     {
-        $visitante = Visitante::find($request['id']);
-
+        $user = Auth::user();
         $user->authorizeRoles(['user']);
 
+        $visitante = Visitante::find($request['id']);
         $visitante->salida = now();
         $visitante->estado = 'OUT';
-
         $visitante->save();
+        
         return redirect()->route('visitantes.index')->with('info', 'Salida de visitante registrada');
     }
 }

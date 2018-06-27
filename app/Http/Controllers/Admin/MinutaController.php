@@ -19,13 +19,14 @@ class MinutaController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $rol = $user->getRol();
         $user->authorizeRoles(['user','admin']);
        
         $minuta = Minuta::orderBy('fecha','DESC')
         ->orderBy('hora','DESC')
         ->where('puesto_id',$user->puesto_id)
         ->paginate('5');
-        return view('Admin.minuta.index',compact(['user','minuta']));
+        return view('Admin.minuta.index',compact(['user','rol','minuta']));
     }
 
     
@@ -33,8 +34,9 @@ class MinutaController extends Controller
     {
 
         $user = Auth::user();
+        $rol = $user->getRol();
         $user->authorizeRoles(['user']);
-        return view('Admin.minuta.create',compact('user'));
+        return view('Admin.minuta.create',compact('user','rol'));
     }
 
     
@@ -49,10 +51,11 @@ class MinutaController extends Controller
     public function show($id)
     {
         $user = Auth::user();
-
+        $rol = $user->getRol();
+        $user->authorizeRoles(['user','admin']);
         $minuta = Minuta::find($id);
 
-        return view('Admin.minuta.show',compact('user','minuta'));
+        return view('Admin.minuta.show',compact('user','rol','minuta'));
     }
 
     
@@ -60,12 +63,13 @@ class MinutaController extends Controller
     {
         
         $user = Auth::user();
-        $user->authorizeRoles(['user']);
+        $user->authorizeRoles(['admin']);
+        $rol = $user->getRol();
         $minuta = Minuta::find($id);
         if($minuta->user_id != $user->id){
           abort(403, 'Esta acción no está autorizada');
         }
-        return view('Admin.minuta.edit',compact('user','minuta'));  
+        return view('Admin.minuta.edit',compact('user','rol','minuta'));  
     }
 
    

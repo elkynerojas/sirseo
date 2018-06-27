@@ -75,4 +75,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Visitante::class);
     }
+
+    public function getRol()
+    {
+        if ($this->hasRole('admin')){
+            $rol = 'admin';
+        }
+        if($this->hasRole('user')){
+            $rol = 'user';
+        }
+        return $rol;
+    }
 }
