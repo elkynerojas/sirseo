@@ -45,4 +45,8 @@ class Puesto extends Model
             'tipos_puesto.nombre as tipo_puesto_nombre'
         );
     }
+    public function elementos()
+    {
+        return $this->hasMany(Elemento::class);
+    }
 }
