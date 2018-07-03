@@ -29,3 +29,6 @@ Route::resource('puestos', 'Admin\PuestoController');
 Route::resource('minuta', 'Admin\MinutaController');
 Route::resource('visitantes', 'Admin\VisitanteController');
 Route::post('visitantes/salida','Admin\VisitanteController@salida')->name('salidaVisitante');
+Route::resource('elementos','Admin\ElementoController');
+Route::resource('tipos_elemento','Admin\Tipo_elementoController');
+Route::post('elementos/salida','Admin\ElementoController@salida')->name('salidaElemento');
