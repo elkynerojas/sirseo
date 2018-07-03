@@ -29,7 +29,7 @@
         <span class="image">
             <img src="{{ asset('images/pic03.jpg') }}" alt="" />
         </span>
-        <a href="generic.html">
+        <a href="{{ route('elementos.index') }}">
             <h2>Registro de Elementos</h2>
             <div class="content">
                 <p>Registro y consulta de entrada y salida de elementos propios y ajenos a la entidad</p>
