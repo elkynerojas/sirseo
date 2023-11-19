@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.31
+    container_name: sirseo_mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlrootkey
+      MYSQL_DATABASE: db
+  phpmyadmin:
+    image: phpmyadmin:5.2.0-apache
+    container_name: sirseo_pma
+    ports:
+      - 8082:80
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: mysqlrootkey
+      MEMORY_LIMIT: -1
+      UPLOAD_LIMIT: 4096M
+    depends_on:
+      - mysql
+  apache2-php:
+    image: elkynerojas/apache2-php:7.4
+    container_name: sirseo_app
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
